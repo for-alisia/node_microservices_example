@@ -4,9 +4,11 @@ const CommentList = ({ comments }) => {
   return (
     <div>
       <ul>
-        { comments.map(({ id, content }) => (
+        { comments.map(({ id, content, status }) => (
           <li key={id}>
-            {content}
+            {status === 'pending' && 'Comment is waiting for approval'}
+            {status === 'approved' && content}
+            {status === 'rejected' && 'Comment was rejected'}
           </li>
         ))}
       </ul>
