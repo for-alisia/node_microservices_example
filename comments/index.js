@@ -33,7 +33,7 @@ app.post('/posts/:id/comments', async (req, res) => {
     data: { ...newComment, postId: req.params.id },
   }
 
-  await axios.post('http://localhost:4005/events', event);
+  await axios.post('http://event-bus-srv:4005/events', event);
 
   res.status(201).send(comments)
 });
@@ -52,7 +52,7 @@ app.post('/events', async (req, res) => {
       data: { ...comment, postId: data.postId }
     }
 
-    await axios.post('http://localhost:4005/events', event);
+    await axios.post('http://event-bus-srv:4005/events', event);
   }
 
   res.send({});

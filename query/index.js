@@ -44,7 +44,7 @@ app.listen(4002, async () => {
   console.log('Listening on 4002');
 
   try {
-    const { data } = await axios.get('http://localhost:4005/events');
+    const { data } = await axios.get('http://event-bus-srv:4005/events');
 
     data.forEach(({ type, data }) => {
       updatePostsWithEvent(type, data);

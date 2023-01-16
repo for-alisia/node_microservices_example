@@ -19,7 +19,7 @@ app.post('/events', async (req, res) => {
       data,
     }
 
-    await axios.post('http://localhost:4005/events', event).catch((err) => console.log(err));
+    await axios.post('http://event-bus-srv:4005/events', event).catch((err) => console.log(err));
   }
 
   res.send({});
